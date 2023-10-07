@@ -1,0 +1,240 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+      "title": "Resumo de Alunos - OpenAPI 3.0"
+      
+      },
+      "basePath": "/",
+      "paths": {
+        "/": {
+            "get": {
+                "summary": "Retornar todos os resumos de alunos cadastrados",
+                "description": "Retorna todos os alunos cadastrados e seus resumos.",
+                "tags": ["Alunos"],
+                
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "nome": {
+                                            "type": "string"
+                                        },
+                                        "idade": {
+                                            "type": "number"
+                                        },
+                                        "nota_1_semestre": {
+                                            "type": "number"
+                                        },
+                                        "nota_2_semestre": {
+                                            "type": "number"
+                                        },
+                                        "nome_professor": {
+                                            "type": "string"
+                                        },
+                                        "numero_da_sala": {
+                                            "type": "number"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                
+            }
+        },
+
+        "/aluno/{id}": {
+            "get": {
+                "summary": "Retornar um resumo de aluno passando um ID",
+                "description": "Retorna o resumo de um aluno por id.",
+                "tags": ["Alunos"],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "type": "integer",
+                        "required": true,
+                        "description": "Usar o id do aluno para buscar."
+                    }
+                ],
+                "responses": {
+                    "404": {
+                        "description": "Resumo de aluno não encontrado."
+                    },
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "nome": {
+                                            "type": "string"
+                                        },
+                                        "idade": {
+                                            "type": "number"
+                                        },
+                                        "nota_1_semestre": {
+                                            "type": "number"
+                                        },
+                                        "nota_2_semestre": {
+                                            "type": "number"
+                                        },
+                                        "nome_professor": {
+                                            "type": "string"
+                                        },
+                                        "numero_da_sala": {
+                                            "type": "number"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                
+            },
+            "put": {
+                "summary": "Atualiza o resumo de um aluno passado no ID",
+                "description": "Atualiza o resumo de um aluno por id.",
+                "tags": ["Alunos"],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "type": "integer",
+                        "required": true,
+                        "description": "Usar o id do aluno para atualizar as informações."
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "nome": {
+                                        "type": "string"
+                                    },
+                                    "idade": {
+                                        "type": "number"
+                                    },
+                                    "nota_1_semestre": {
+                                        "type": "number"
+                                    },
+                                    "nota_2_semestre": {
+                                        "type": "number"
+                                    },
+                                    "nome_professor": {
+                                        "type": "string"
+                                    },
+                                    "numero_da_sala": {
+                                        "type": "number"
+                                    }
+                                },
+                                "example": {
+                                    "nome": "Fernanda Roberta",
+                                    "idade": 56,
+                                    "nota_1_semestre": 7.5,
+                                    "nota_2_semestre": 5.6,
+                                    "nome_professor": "Marcos",
+                                    "numero_da_sala": 2
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "nome": {
+                                            "type": "string"
+                                        },
+                                        "idade": {
+                                            "type": "number"
+                                        },
+                                        "nota_1_semestre": {
+                                            "type": "number"
+                                        },
+                                        "nota_2_semestre": {
+                                            "type": "number"
+                                        },
+                                        "nome_professor": {
+                                            "type": "string"
+                                        },
+                                        "numero_da_sala": {
+                                            "type": "number"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+
+        "/aluno": {
+            "post": {
+                "summary": "Cadastra um novo resumo de aluno",
+                "description": "Cria um resumo de aluno com seus atributos sendo: nome, idade, nota 1 semestre, nota 2 semestre, nome do professor e número da sala",
+                "tags": ["Alunos"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "nome": {
+                                        "type": "string"
+                                    },
+                                    "idade": {
+                                        "type": "number"
+                                    },
+                                    "nota_1_semestre": {
+                                        "type": "number"
+                                    },
+                                    "nota_2_semestre": {
+                                        "type": "number"
+                                    },
+                                    "nome_professor": {
+                                        "type": "string"
+                                    },
+                                    "numero_da_sala": {
+                                        "type": "number"
+                                    }
+                                },
+                                "example": {
+                                    "nome": "Maria",
+                                    "idade": 36,
+                                    "nota_1_semestre": 9.5,
+                                    "nota_2_semestre": 8.6,
+                                    "nome_professor": "Marcos",
+                                    "numero_da_sala": 6
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "404": {
+                        "description": "Não consegui criar o resumo do aluno."
+                    },
+                    "201": {
+                        "description": "Resumo de aluno criado"
+                    }
+                }
+                }
+            }
+      }
+  }
