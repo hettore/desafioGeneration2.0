@@ -1,8 +1,8 @@
 {
     "openapi": "3.0.3",
     "info": {
-      "title": "Resumo de Alunos - OpenAPI 3.0"
-      
+      "title": "Resumo de Alunos - OpenAPI 3.0",
+       "description": "Desafio Online, programação na prática com o objetivo de criar uma api CRUD, usando MySQL para armazenar dados de alunos."
       },
       "basePath": "/",
       "paths": {
@@ -58,7 +58,7 @@
                 }
             }
         },
-        
+
         "/": {
             "get": {
                 "summary": "Retornar todos os resumos de alunos cadastrados",
