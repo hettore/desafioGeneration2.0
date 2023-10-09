@@ -6,6 +6,59 @@
       },
       "basePath": "/",
       "paths": {
+        "/aluno": {
+            "post": {
+                "summary": "Cadastra um novo resumo de aluno",
+                "description": "Cria um resumo de aluno com seus atributos sendo: nome, idade, nota 1 semestre, nota 2 semestre, nome do professor e número da sala",
+                "tags": ["Alunos"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "nome": {
+                                        "type": "string"
+                                    },
+                                    "idade": {
+                                        "type": "number"
+                                    },
+                                    "nota_1_semestre": {
+                                        "type": "number"
+                                    },
+                                    "nota_2_semestre": {
+                                        "type": "number"
+                                    },
+                                    "nome_professor": {
+                                        "type": "string"
+                                    },
+                                    "numero_da_sala": {
+                                        "type": "number"
+                                    }
+                                },
+                                "example": {
+                                    "nome": "Maria",
+                                    "idade": 36,
+                                    "nota_1_semestre": 9.5,
+                                    "nota_2_semestre": 8.6,
+                                    "nome_professor": "Marcos",
+                                    "numero_da_sala": 6
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "404": {
+                        "description": "Não consegui criar o resumo do aluno."
+                    },
+                    "201": {
+                        "description": "Resumo de aluno criado"
+                    }
+                }
+            }
+        },
+        
         "/": {
             "get": {
                 "summary": "Retornar todos os resumos de alunos cadastrados",
@@ -204,59 +257,6 @@
                     }
                 }
             }
-        },
-
-        "/aluno": {
-            "post": {
-                "summary": "Cadastra um novo resumo de aluno",
-                "description": "Cria um resumo de aluno com seus atributos sendo: nome, idade, nota 1 semestre, nota 2 semestre, nome do professor e número da sala",
-                "tags": ["Alunos"],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "nome": {
-                                        "type": "string"
-                                    },
-                                    "idade": {
-                                        "type": "number"
-                                    },
-                                    "nota_1_semestre": {
-                                        "type": "number"
-                                    },
-                                    "nota_2_semestre": {
-                                        "type": "number"
-                                    },
-                                    "nome_professor": {
-                                        "type": "string"
-                                    },
-                                    "numero_da_sala": {
-                                        "type": "number"
-                                    }
-                                },
-                                "example": {
-                                    "nome": "Maria",
-                                    "idade": 36,
-                                    "nota_1_semestre": 9.5,
-                                    "nota_2_semestre": 8.6,
-                                    "nome_professor": "Marcos",
-                                    "numero_da_sala": 6
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "404": {
-                        "description": "Não consegui criar o resumo do aluno."
-                    },
-                    "201": {
-                        "description": "Resumo de aluno criado"
-                    }
-                }
-                }
-            }
-      }
-  }
+        }
+    }
+}
