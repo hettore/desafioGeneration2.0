@@ -14,7 +14,7 @@ swaggerui_blueprint = get_swaggerui_blueprint(
     SWAGGER_URL,  # Swagger UI static files will be mapped to '{SWAGGER_URL}/dist/'
     API_URL,
     config={  # Swagger UI config overrides
-        'app_name': "Test application"
+        'app_name': "API - Alunos Desafio Generation"
     },
     # oauth_config={  # OAuth config. See https://github.com/swagger-api/swagger-ui#oauth2-configuration .
     #    'clientId': "your-client-id",
@@ -74,13 +74,14 @@ def atualizar_aluno_id(id):
         return jsonify({'Mensagem': "Resumo de aluno não encontrado"}), 404
 
 #Deletando um aluno por id
+# Aqui com o retorno 204 ele apaga o registro porem não demostra qual aluno foi apagado como quando usa-se o http code 200
 @app.route('/aluno/<int:id>', methods=['DELETE'])
 def deletar_aluno(id):
     try:
         aluno = repository_com_bd.retornando_aluno(id)
         if aluno:
             repository_com_bd.remover_aluno(id)
-            return jsonify({"Mensagem": "Resumo de aluno deletado com sucesso"}, aluno)
+            return jsonify({"Mensagem": "Resumo de aluno deletado com sucesso"}, aluno), 204
     except Exception:
         return jsonify({"Mensagem": "Resumo de aluno não encontrado"}), 404
 

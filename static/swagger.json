@@ -181,6 +181,28 @@
                         }
                     }
                 }
+            },
+            "delete": {
+                "summary": "Apaga um resumo de aluno",
+                "description": "ATENÇÃO! Apaga um resumo de aluno com todos os seus atributos!",
+                "tags": ["Alunos"],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "type": "integer",
+                        "required": true,
+                        "description": "Usar o id do aluno para buscar."
+                    }
+                ],
+                "responses": {
+                    "404": {
+                        "description": "Resumo de aluno não encontrado."
+                    },
+                    "204": {
+                        "description": "Resumo de aluno apagado com sucesso."
+                    }
+                }
             }
         },
 
